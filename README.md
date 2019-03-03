@@ -48,6 +48,8 @@ Ask a question to the user.
 steps:
     - actions:
         - ask: "What's your name?"
+          register: "question1"
+        - write: "The Response was: '{{question1['response']}}'"
 ```
 
 Default value for a question is empty string. Set a custom default value is possible:
