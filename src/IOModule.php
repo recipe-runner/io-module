@@ -6,13 +6,10 @@ use InvalidArgumentException;
 use RecipeRunner\RecipeRunner\Module\Invocation\ExecutionResult;
 use RecipeRunner\RecipeRunner\Module\Invocation\Method;
 use RecipeRunner\RecipeRunner\Module\ModuleBase;
-use Yosymfony\Collection\MixedCollection;
+use Yosymfony\Collection\CollectionInterface;
 
 class IOModule extends ModuleBase
 {
-    private const NAME = 'IO';
-    private const VERSION = '0.1.0';
-
     public function __construct()
     {
         parent::__construct();
@@ -20,24 +17,11 @@ class IOModule extends ModuleBase
         $this->addMethodHandler('ask', [$this, 'ask']);
         $this->addMethodHandler('ask_yes_no', [$this, 'askConfirmation']);
     }
+
     /**
      * {@inheritdoc}
      */
-    public function getName() : string
-    {
-        return self::NAME;
-    }
-    /**
-     * {@inheritdoc}
-     */
-    public function getVersion() : string
-    {
-        return self::VERSION;
-    }
-    /**
-     * {@inheritdoc}
-     */
-    public function runMethod(Method $method, MixedCollection $recipeVariables) : ExecutionResult
+    public function runMethod(Method $method, CollectionInterface $recipeVariables) : ExecutionResult
     {
         return $this->runInternalMethod($method, $recipeVariables);
     }
