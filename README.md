@@ -12,10 +12,14 @@ Input/output operations such as `write` or `ask` for interacting with the user.
 
 ## Installation
 
-The preferred installation method is [composer](https://getcomposer.org):
+Create a recipe and add the module to the `packages` section:
 
-```bash
-composer require recipe-runner/io-module
+```yaml
+name: "Your recipe"
+extra:
+  rr:
+    packages:
+      "recipe-runner/io-module": "1.0.x-dev"
 ```
 
 ## Usage
@@ -92,11 +96,19 @@ Response:
 
 ```json
 {
-  "response": true # boolean value
+  "response": true
 }
 ```
 
-## Unit tests
+## For module developers
+
+The preferred installation method is [composer](https://getcomposer.org):
+
+```bash
+composer require recipe-runner/io-module
+```
+
+### Unit tests
 
 You can run the unit tests with the following command:
 
